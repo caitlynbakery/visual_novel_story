@@ -12,7 +12,7 @@ class ProjectViewComponent extends PositionComponent
   late final TextBoxComponent mainDialogueTextComponent;
   final dialoguePaint = TextPaint(
       style: const TextStyle(
-          backgroundColor: Color.fromARGB(160, 158, 158, 158), fontSize: 26));
+          backgroundColor: Color.fromARGB(159, 107, 107, 107), fontSize: 26));
   final background = SpriteComponent();
   final girl = SpriteComponent();
   final boy = SpriteComponent();
@@ -74,14 +74,39 @@ class ProjectViewComponent extends PositionComponent
     forwardButtonComponent.removeFromParent();
     mainDialogueTextComponent.text = 'make your choice';
     for (int i = 0; i < choice.options.length; i++) {
-      optionsList.add(ButtonComponent(
-          position: Vector2(30, i * 50 + 50),
-          button: TextComponent(
-              text: 'Choice ${i + 1}: ${choice.options[i].text}')));
+      optionsList.add(
+        ButtonComponent(
+            position: Vector2(30, i * 50 + 100),
+            button: TextComponent(
+                text: 'Choice ${i + 1}: ${choice.options[i].text}',
+                textRenderer: dialoguePaint),
+            onPressed: () {
+              if (!_choiceCompleter.isCompleted) {
+                _choiceCompleter.complete(i);
+              }
+            }),
+      );
     }
     addAll(optionsList);
     await _getChoice(choice);
     return _choiceCompleter.future;
+  }
+
+  @override
+  FutureOr<void> onChoiceFinish(DialogueOption option) {
+    mainDialogueTextComponent.text = 'Decision is: ${option.text}';
+    removeAll(optionsList);
+    optionsList = [];
+    add(forwardButtonComponent);
+  }
+
+  @override
+  FutureOr<void> onNodeStart(Node node) {
+    switch (node.title) {
+      case 'Cafe':
+        background.sprite = gameRef.cafeBackgroundSprite;
+    }
+    return super.onNodeStart(node);
   }
 
   Future<void> _getChoice(DialogueChoice choice) async {

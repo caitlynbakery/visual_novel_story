@@ -11,6 +11,8 @@ void main() {
 
 class JennyGame extends FlameGame with HasTappables {
   late Sprite trainBackgroundSprite;
+  late Sprite cafeBackgroundSprite;
+  late Sprite apartmentBackgroundSprite;
   late Sprite girlSprite;
   late Sprite boySprite;
   YarnProject yarnProject = YarnProject();
@@ -19,12 +21,17 @@ class JennyGame extends FlameGame with HasTappables {
   @override
   Future<void> onLoad() async {
     trainBackgroundSprite = await loadSprite('train.png');
+    cafeBackgroundSprite = await loadSprite('cafe.png');
+    apartmentBackgroundSprite = await loadSprite('apartment.png');
     girlSprite = await loadSprite('girl.png');
     boySprite = await loadSprite('guy.png');
 
     String startDialogueData =
         await rootBundle.loadString('assets/yarn/start.yarn');
-    yarnProject.parse(startDialogueData);
+    String cafeData = await rootBundle.loadString('assets/yarn/cafe.yarn');
+    yarnProject
+      ..parse(startDialogueData)
+      ..parse(cafeData);
 
     var dialogueRunner = DialogueRunner(
         yarnProject: yarnProject, dialogueViews: [projectViewComponent]);

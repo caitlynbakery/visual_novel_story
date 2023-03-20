@@ -9,6 +9,14 @@ Aoi: Of course, I'm Aoi by the way.
 Yuto: I'm a university student studying art history. Are you still in school?
 Aoi: Yes! I go to Waseda University studying literature.
 -> Let's grab a coffee at the cafe before heading to the museum!
+   Aoi: Oh, I'm getting thirsty. I was just thinking of going!
+   Yuto: Cool. How about Mademoiselle Collete?
+   Aoi: Ok. Let's go!
+   <<jump Cafe>>
 -> Hope to see you again
+   Aoi: Maybe we'll meet again?
+   Yuto: Yeah, maybe.
 -> I'd like to go on a date with you
+   Aoi: That's nice, but I don't really know you.
+   Yuto: Yea, I understand, it would be kinda awkward.
 ===
