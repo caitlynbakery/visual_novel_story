@@ -105,6 +105,14 @@ class ProjectViewComponent extends PositionComponent
     switch (node.title) {
       case 'Cafe':
         background.sprite = gameRef.cafeBackgroundSprite;
+        girl.sprite = gameRef.girlSmileSprite;
+        boy.sprite = gameRef.boySmileSprite;
+        break;
+      case 'Apartment':
+        background.sprite = gameRef.apartmentBackgroundSprite;
+        girl.sprite = gameRef.girlSurprisedSprite;
+        boy.sprite = gameRef.boySurprisedSprite;
+        break;
     }
     return super.onNodeStart(node);
   }

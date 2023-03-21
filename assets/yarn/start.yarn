@@ -16,6 +16,7 @@ Aoi: Yes! I go to Waseda University studying literature.
 -> Hope to see you again
    Aoi: Maybe we'll meet again?
    Yuto: Yeah, maybe.
+   <<jump Apartment>>
 -> I'd like to go on a date with you
    Aoi: That's nice, but I don't really know you.
    Yuto: Yea, I understand, it would be kinda awkward.
