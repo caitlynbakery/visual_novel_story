@@ -24,15 +24,15 @@ class JennyGame extends FlameGame with HasTappables {
 
   @override
   Future<void> onLoad() async {
-    trainBackgroundSprite = await loadSprite('train.png');
-    cafeBackgroundSprite = await loadSprite('cafe.png');
-    apartmentBackgroundSprite = await loadSprite('apartment.png');
-    girlSprite = await loadSprite('girl.png');
-    girlSurprisedSprite = await loadSprite('girl_suprised.png');
-    girlSmileSprite = await loadSprite('girl_smile.png');
-    boySprite = await loadSprite('guy.png');
-    boySurprisedSprite = await loadSprite('guy_surprised.png');
-    boySmileSprite = await loadSprite('guy_smile.png');
+    trainBackgroundSprite = await loadSprite('train.webp');
+    cafeBackgroundSprite = await loadSprite('cafe.webp');
+    apartmentBackgroundSprite = await loadSprite('apartment.webp');
+    girlSprite = await loadSprite('girl.webp');
+    girlSurprisedSprite = await loadSprite('girl_suprised.webp');
+    girlSmileSprite = await loadSprite('girl_smile.webp');
+    boySprite = await loadSprite('guy.webp');
+    boySurprisedSprite = await loadSprite('guy_surprised.webp');
+    boySmileSprite = await loadSprite('guy_smile.webp');
 
     String startDialogueData =
         await rootBundle.loadString('assets/yarn/start.yarn');
