@@ -50,6 +50,25 @@ FutureOr<void> onNodeStart(Node node) {
         }}
 ```
 
+### Completer
+
+Completer is an object that completes Flutter objects at later times. It is used when there are complex async codes and to have control over the `Future`.
+
+In this project, the `Completer` is defined in the `project_view_component.dart` file.
+
+```dart
+  Completer<void> _forwardCompleter = Completer();
+  Completer<int> _choiceCompleter = Completer<int>();
+```
+
+Later, in the `_getChoice` method the `_forwardCompleter` is returned to get the value of the choice the user selected.
+
+```dart
+ Future<void> _getChoice(DialogueChoice choice) async {
+    return _forwardCompleter.future;
+  }
+```
+
 ## Resources
 
 * [jenny](https://docs.flame-engine.org/1.6.0/other_modules/jenny/index.html)
